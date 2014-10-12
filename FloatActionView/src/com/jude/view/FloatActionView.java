@@ -5,7 +5,6 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,6 @@ import android.view.animation.RotateAnimation;
  * 
  */
 public class FloatActionView extends ViewGroup implements View.OnClickListener{
-    private static String TAG = "FloatView";
     private boolean isExpanded = false;
     private FloatViewAdapter mAdapter;
 
@@ -63,14 +61,15 @@ public class FloatActionView extends ViewGroup implements View.OnClickListener{
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         int bottom = b-t;
         int right = r-l;
-        //
+        
+        //将所有view向右下层叠对齐
         if(mExpandView!=null){
             for (int i = 0 ; i<mExpandView.length;i++){
                 Rect rect = CountRect(mExpandView[i],right,bottom);
                 mExpandView[i].layout(rect.left,rect.top,rect.right,rect.bottom);
             }
         }
-
+        
         if(mMainView!=null){
             Rect rect = CountRect(mMainView,right,b-t);
             mMainView.layout(rect.left,rect.top,rect.right,rect.bottom);
@@ -83,8 +82,12 @@ public class FloatActionView extends ViewGroup implements View.OnClickListener{
      */
     public void expand(){
         if(mMainView!=null&&!isExpanded&&!isClicklock){
+        	//动画时锁定
             isClicklock = true;
+            
             isExpanded = true;
+            
+            //主按钮动画开始
             startExpandAnimation();
             if(mListener!=null){
             	mListener.OnExpand(mMainView);
@@ -98,8 +101,11 @@ public class FloatActionView extends ViewGroup implements View.OnClickListener{
      */
     public void shrink(){
         if(mMainView!=null&&isExpanded&&!isClicklock){
+        	
             isClicklock = true;
+            
             isExpanded = false;
+            
             startShrinkAnimation();
             if(mListener!=null){
             	mListener.OnShrink(mMainView);
@@ -231,7 +237,7 @@ public class FloatActionView extends ViewGroup implements View.OnClickListener{
             mListener.OnItemClick(view,((Integer)view.getTag())-1);
             shrink();
         }
-        if(isExpanded&&((Integer)view.getTag() == 0)){//main鎸夐挳鍗曞嚮
+        if(isExpanded&&((Integer)view.getTag() == 0)){//main按钮被按下
             shrink();
         }else{
             expand();

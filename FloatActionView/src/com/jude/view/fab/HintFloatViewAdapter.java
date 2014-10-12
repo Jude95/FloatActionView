@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 /**
  * Created by Mr on 2014/8/14.
+ * 带提示框的fab。仿Evernote。
+ * 
  */
 public abstract class HintFloatViewAdapter implements FloatViewAdapter {
 
@@ -26,6 +28,7 @@ public abstract class HintFloatViewAdapter implements FloatViewAdapter {
     @Override
     public abstract int getCount();
 
+    //设置响应点击事件的view
     @Override
     public View getItemsClickableView(View ItemView, int position) {
         return ItemView;

@@ -21,6 +21,7 @@ public class MainActivity extends ActionBarActivity {
     
     
 }
+
 class MyFloatViewAdapter extends HintFloatViewAdapter{
 
 	public MyFloatViewAdapter(Context ctx) {
@@ -46,7 +47,7 @@ class MyFloatViewAdapter extends HintFloatViewAdapter{
 
 	@Override
 	public String getItemHint(int position) {
-		return "这里是提示文本";
+		return "提示文本";
 	}
 	
 	
