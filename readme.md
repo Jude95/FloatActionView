@@ -6,6 +6,8 @@
 
 自带一个仿Evernote的fab。
 
+ ![image](https://github.com/zhuchenxi1995/FloatActionView/raw/master/img.png)
+
 使用方法
 -
 首先添加FloatActionView。你给他多大空间。他就在多大空间里伸缩。并靠右下对齐。
