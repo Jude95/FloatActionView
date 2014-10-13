@@ -12,18 +12,18 @@ public final class R {
 		public static final int ic_launcher = 0x7f02005e;
 	}
 	public static final class id {
-		public static final int hint = 0x7f07003d;
-		public static final int img = 0x7f07003e;
+		public static final int hint = 0x7f05003d;
+		public static final int img = 0x7f05003e;
 	}
 	public static final class layout {
 		public static final int floatingitem = 0x7f030019;
 		public static final int floatingmain = 0x7f03001a;
 	}
 	public static final class string {
-		public static final int app_name = 0x7f050000;
+		public static final int app_name = 0x7f0a000d;
 	}
 	public static final class style {
-		public static final int AppBaseTheme = 0x7f060000;
-		public static final int AppTheme = 0x7f060001;
+		public static final int AppBaseTheme = 0x7f0b008b;
+		public static final int AppTheme = 0x7f0b008c;
 	}
 }
